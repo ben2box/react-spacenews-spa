@@ -63,6 +63,7 @@ function CardContainer() {
         className="row gy-2 gx-0 text-white justify-content-evenly"
       >
         <span className="text-center">Page: {page}</span>
+        {/* TODO: Add a cool pagination design */}
         <div id="btnContainer" className="text-center">
           {previous !== null ? (
             <>

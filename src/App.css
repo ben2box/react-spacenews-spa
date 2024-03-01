@@ -3,6 +3,10 @@ body {
 
 }
 
+.logo {
+  margin-right: 10px;
+}
+
 #heroDiv {
   background-image: url('./resources/background.jpg');
 }
