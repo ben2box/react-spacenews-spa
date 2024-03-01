@@ -5,7 +5,7 @@ import Card from './Card'
 
 function CardContainer() {
     
-    const [api, setApi] = useState('https://api.spaceflightnewsapi.net/v4/articles/?limit=6&offset=0')
+    const [api, setApi] = useState('https://api.spaceflightnewsapi.net/v4/articles/')
     const [news, setNews] = useState([])
     const [next, setNext] = useState('')
     const [previous, setPrevious] = useState('')
@@ -48,29 +48,60 @@ function CardContainer() {
       setPage(p => p-1)
     }
 
+    const handleSortByOld = () => {
+      setApi('https://api.spaceflightnewsapi.net/v4/articles/?ordering=published_at')
+      setPage(1)
+    }
+    const handleSortByNew = () => {
+      setApi('https://api.spaceflightnewsapi.net/v4/articles/?ordering=-published_at')
+      setPage(1)
+    }
+
     return (
       <div
         id="cardContainer"
         className="row gy-2 gx-0 text-white justify-content-evenly"
-        >
-        <span className='text-center'>Page: {page}</span>
+      >
+        <span className="text-center">Page: {page}</span>
         <div id="btnContainer" className="text-center">
           {previous !== null ? (
             <>
               <button className="btn btn-primary" onClick={handleOnClickPrev}>
-                Previous Page: {page-1}
+                Previous Page: {page - 1}
               </button>
               <button className="btn btn-success" onClick={handleOnClickNext}>
-                Next Page: {page+1}
+                Next Page: {page + 1}
               </button>
             </>
           ) : (
             <>
-            <button className="btn btn-success" onClick={handleOnClickNext}>
-              Next Page: {page+1}
-            </button>
+              <button className="btn btn-success" onClick={handleOnClickNext}>
+                Next Page: {page + 1}
+              </button>
             </>
           )}
+        </div>
+        <div className="dropdown text-end">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Sort by
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <button className="dropdown-item" onClick={handleSortByOld}>
+                Oldest
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={handleSortByNew}>
+                Newest
+              </button>
+            </li>
+          </ul>
         </div>
         {loading ? (
           <h1> LOADING ... </h1>
