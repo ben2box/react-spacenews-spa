@@ -1,5 +1,5 @@
 export default function Divider() {
     return (
-        <hr className="featurette-divider" />
+        <hr className="featurette-divider"/>
     )
 }

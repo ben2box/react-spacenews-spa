@@ -1,3 +1,79 @@
+body {
+  background-color: #23272f;
+
+}
+
+#heroDiv {
+  background-image: url('./resources/background.jpg');
+}
+
+.mask {
+  background-color: hsla(0, 0%, 0%, 0.6);
+}
+
+hr {
+  color: lightgray;
+  margin-left: 10px;
+  margin-right:10px;
+}
+
+.sectionTitle {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.card-img-top {
+  height: 35vh;
+  object-fit: cover;
+}
+
+#cardContainer{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+
+@media screen and (max-width: 650px) {
+ .card {
+  width: 100%;
+  }
+}
+@media screen and (min-width: 650px) {  
+  .card {
+    width: 48.5%
+  }
+}
+
+@media screen and (min-width: 1250px){
+  .card {
+    width: 32.5%;
+  }
+}
+
+@media screen and (min-width: 1950px){
+  .card {
+    width: 24.5%
+  }
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+        
+}
+
+  
+
+
+
+
+
+
+
+
 /* 
 .nav-link {
   color: lightgray;
