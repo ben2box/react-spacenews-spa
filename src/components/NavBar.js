@@ -1,6 +1,11 @@
+import { useContext, useState } from 'react';
+import {SearchContext} from '../App'
 import logo from '../resources/logo.svg'
 
-export default function Navbar() {
+export default function Navbar({handleSearchRoute}) {
+  const [label, setLabel] = useState('')
+  const {updateSearchTerm} = useContext(SearchContext)
+
   const smLogo = (
          <img
               src={logo}
@@ -10,6 +15,26 @@ export default function Navbar() {
               className="d-inline-block align-text-top logo"
             />
   )
+
+  const handleLabelUpdate = e => {
+      
+      setLabel(e.target.value)
+      
+  }
+ 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateSearchTerm(label)
+    console.log(label)
+    setLabel('')
+  }
+
+
+
+
+  // const handleSearchSubmit = () => {
+  //   handleSearchRoute(label)
+  // }
 
 
     return (
@@ -68,8 +93,12 @@ export default function Navbar() {
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  value={label}
+                  onChange={handleLabelUpdate}
                 />
-                <button className="btn btn-outline-success" type="submit">
+                <button className="btn btn-outline-success" type="submit"
+                disabled={label.length === 0}
+                onClick={handleSubmit}>
                   Search
                 </button>
               </form>

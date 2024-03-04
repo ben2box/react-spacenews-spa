@@ -1,27 +1,43 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext} from 'react';
+import { SearchContext } from '../App';
 import Card from './Card'
 
 
 
 function CardContainer() {
-    
-    const [api, setApi] = useState('https://api.spaceflightnewsapi.net/v4/articles/')
-    const [news, setNews] = useState([])
-    const [next, setNext] = useState('')
-    const [previous, setPrevious] = useState('')
-    const [page, setPage] = useState(1)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+  
+  const [api, setApi] = useState('https://api.spaceflightnewsapi.net/v4/articles/')
+  const [news, setNews] = useState([])
+  const [next, setNext] = useState('')
+  const [previous, setPrevious] = useState('')
+  const [page, setPage] = useState(1)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [newsCount, setNewsCount] = useState(0)
+  const {searchTerm, updateSearchTerm} = useContext(SearchContext);
 
-    useEffect(() => {
-      async function fetchNews() {
+  console.log(searchTerm)
+
+  
+  useEffect(() => {
+    
+    async function fetchNews() {
+        if (searchTerm !== ''){
+          setApi(`https://api.spaceflightnewsapi.net/v4/articles/?search=${searchTerm}`)
+          updateSearchTerm('')
+          resetFilters()
+          
+        }
         console.log(api)
         try {
-          console.log('RUNNING USEEFFECT')  
+          console.log('RUNNING USEEFFECT: ' + api)  
           setLoading(true)
           console.log('FETCHING')  
           const response = await fetch(`${api}`);
           const data = await response.json()
+          
+          setNewsCount(data.count)
+          console.log(data.count)
           setNext(data.next)
           setPrevious(data.previous)
           setNews(data.results);
@@ -36,7 +52,7 @@ function CardContainer() {
 
       }
       fetchNews()
-    },[api, error]);
+    },[api, error, searchTerm]);
 
     const handleOnClickNext = () => {
       setApi(next)
@@ -48,14 +64,28 @@ function CardContainer() {
       setPage(p => p-1)
     }
 
+
+    //TODO: Get sorting working in order, not affected by what page the search is
     const handleSortByOld = () => {
-      setApi('https://api.spaceflightnewsapi.net/v4/articles/?ordering=published_at')
-      setPage(1)
+      // setApi(`https://api.spaceflightnewsapi.net/v4/articles/?ordering=published_at`)
+      api.includes('search=') ? setApi(`${api}&ordering=published_at`) : setApi(`${api}?ordering=published_at`)
+
+      // setApi(`${api}&ordering=published_at`)
+      
     }
     const handleSortByNew = () => {
-      setApi('https://api.spaceflightnewsapi.net/v4/articles/?ordering=-published_at')
-      setPage(1)
+      // setApi('https://api.spaceflightnewsapi.net/v4/articles/?ordering=-published_at')
+      api.includes('search=') ? setApi(`${api}&ordering=-published_at`) : setApi(`${api}?ordering=-published_at`)
+      
     }
+
+    const resetFilters = () => {
+      setPage(1)
+      setNext(null)
+      setPrevious(null)
+    }
+
+    
 
     return (
       <div
@@ -106,7 +136,7 @@ function CardContainer() {
         </div>
         {loading ? (
           <h1> LOADING ... </h1>
-        ) : (
+        ) : newsCount !== 0 ? (
           news.map((card) => (
             <Card
               id={card.id}
@@ -116,7 +146,8 @@ function CardContainer() {
               summary={card.summary}
             />
           ))
-        )}
+        ) : <h3 className='text-center'>No results found</h3>
+      }
       </div>
     );
 }

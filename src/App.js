@@ -3,44 +3,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./App.css";
-import Navbar from "./components/NavBar";
-import Hero from "./components/Hero";
-import Divider from "./components/Divider";
-import Title from "./components/SectionTitle";
-import CardContainer from "./components/CardContainer";
+import { createContext, useState } from "react";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
 
-function Header() {
-  return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Divider />
-      <Title text='Latest News'/>
-    </div>
-  );
-}
-
-function Body() {
-  return (
-    <div>
-      <CardContainer/>
-      <div>This is where the News Section goes</div>
-      <div>This is where the Upcoming Launches Section goes</div>
-      <div>This is where the Archive (?) goes</div>
-    </div>
-  );
-}
-
-function Footer() {
-  return <div>This is a footer</div>;
-}
+export const SearchContext = createContext({searchTerm:'testing', updateSearchTerm: ()=>{}})
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const updateSearchTerm = (e) => setSearchTerm(e)
+
   return (
-    <div className="App" data-bs-theme='dark'>
-      <Header />
-      <Body />
-      <Footer />
+    <div className="App" data-bs-theme="dark">
+      <SearchContext.Provider value={{searchTerm, updateSearchTerm}}>
+        <Header />
+        <Body />
+        <Footer />
+      </SearchContext.Provider>
     </div>
   );
 }

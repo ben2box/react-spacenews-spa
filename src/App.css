@@ -1,6 +1,11 @@
 body {
   background-color: #23272f;
+}
 
+#Footer {
+  padding-left: 50px;
+  padding-right: 50px;
+  transform: translateY(-20px);
 }
 
 .logo {
