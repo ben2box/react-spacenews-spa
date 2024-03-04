@@ -20,7 +20,7 @@ function CardContainer() {
 
   
   useEffect(() => {
-    
+    let ignore = false;
     async function fetchNews() {
         if (searchTerm !== ''){
           setApi(`https://api.spaceflightnewsapi.net/v4/articles/?search=${searchTerm}`)
@@ -28,7 +28,10 @@ function CardContainer() {
           resetFilters()
           
         }
-        console.log(api)
+
+        if (ignore) {
+          return
+        }
         try {
           console.log('RUNNING USEEFFECT: ' + api)  
           setLoading(true)
@@ -37,9 +40,9 @@ function CardContainer() {
           const data = await response.json()
           
           setNewsCount(data.count)
-          console.log(data.count)
-          setNext(data.next)
-          setPrevious(data.previous)
+          console.log('This fetch returned '+data.count+' news pieces.')
+          data.next !== null ? setNext(data.next) : setNext(null)
+          page !== 1 ? setPrevious(data.previous) : setPrevious(null)
           setNews(data.results);
           
           
@@ -52,6 +55,9 @@ function CardContainer() {
 
       }
       fetchNews()
+      return() => {
+        ignore = true;
+      }
     },[api, error, searchTerm]);
 
     const handleOnClickNext = () => {
