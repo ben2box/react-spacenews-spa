@@ -40,6 +40,18 @@ export default function Navbar({handleSearchRoute}) {
     toggleDarkMode()
   }
 
+  const handleNewsClick = () => {
+    setActive('News')
+  }
+
+  const handleBlogClick = () => {
+    setActive('Blog')
+  }
+
+  const handleReportsClick = () => {
+    setActive('Reports')
+  }
+
 
 
 
@@ -89,13 +101,13 @@ export default function Navbar({handleSearchRoute}) {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">Latest News</a>
+                  <a className={`nav-link ${active === 'News' ? `active`: ``}`} aria-current="page" href="#" onClick={handleNewsClick}>Latest News</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">Blog</a>
+                  <a className={`nav-link ${active === 'Blog' ? `active`: ``}`} aria-current="page" href="#" onClick={handleBlogClick}>Blog</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" aria-current="page" href="#">Reports</a>
+                  <a className={`nav-link ${active === 'Reports' ? `active`: ``}`} aria-current="page" href="#" onClick={handleReportsClick}>Reports</a>
                 </li>
                 <li className="nav-item">
                   <button className="nav-link" onClick={handleThemeClick}><FontAwesomeIcon icon={faCircleHalfStroke}/> Toggle Light/Dark</button>
