@@ -1,4 +1,3 @@
-
 export default function Hero() {
     return (
       <div className="bg-dark text-secondary text-center" id="heroDiv">

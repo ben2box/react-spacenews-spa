@@ -3,12 +3,13 @@ import Divider from "./Divider";
 
 
 export default function Body() {
+
+
   return (
-    <div>
+    <section>
       <CardContainer/>
-      <div>This is where the Upcoming Launches Section goes</div>
       <Divider />
     
-    </div>
+    </section>
   );
 }

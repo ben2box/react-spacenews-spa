@@ -96,7 +96,7 @@ function CardContainer() {
     return (
       <div
         id="cardContainer"
-        className="row gy-2 gx-0 text-white justify-content-evenly"
+        className="row gy-2 gx-0 justify-content-evenly"
       >
         <span className="text-center">Page: {page}</span>
         {/* TODO: Add a cool pagination design */}
@@ -145,6 +145,7 @@ function CardContainer() {
         ) : newsCount !== 0 ? (
           news.map((card) => (
             <Card
+              key={card.id}
               id={card.id}
               title={card.title}
               url={card.url}

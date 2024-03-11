@@ -5,13 +5,14 @@ import Title from "./SectionTitle";
 
 
 export default function Header() {
+
   
   return (
-    <div>
+    <header>
       <Navbar />
       <Hero />
       <Divider />
       <Title text='Latest News'/>
-    </div>
+    </header>
   );
 }

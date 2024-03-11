@@ -1,10 +1,17 @@
 import { useContext, useState } from 'react';
 import {SearchContext} from '../App'
+import { DarkModeContext } from '../Context/DarkModeContext';
 import logo from '../resources/logo.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+
+
 
 export default function Navbar({handleSearchRoute}) {
+  const [active, setActive] = useState('News') //TODO: Fix navbar section active class onClick
   const [label, setLabel] = useState('')
   const {updateSearchTerm} = useContext(SearchContext)
+  const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
 
   const smLogo = (
          <img
@@ -29,6 +36,10 @@ export default function Navbar({handleSearchRoute}) {
     setLabel('')
   }
 
+  const handleThemeClick = () => {
+    toggleDarkMode()
+  }
+
 
 
 
@@ -39,11 +50,11 @@ export default function Navbar({handleSearchRoute}) {
 
     return (
       <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        className={`navbar fixed-top navbar-expand-lg ${darkMode ? `navbar-dark bg-dark` : `navbar-light bg-light`}`}
         aria-label="Offcanvas navbar large"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="">
+          <a className="navbar-brand" href="http://localhost:3000/">
             {smLogo}
             FTL Newsfeed Network
           </a>
@@ -58,8 +69,8 @@ export default function Navbar({handleSearchRoute}) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="offcanvas offcanvas-end text-bg-dark"
-            tabindex="-1"
+            className={`offcanvas offcanvas-end `}
+            tabIndex="-1"
             id="offcanvasNavbar2"
             aria-labelledby="offcanvasNavbar2Label"
           >
@@ -70,7 +81,7 @@ export default function Navbar({handleSearchRoute}) {
               </h5>
               <button
                 type="button"
-                className="btn-close btn-close-white"
+                className={`btn-close`}
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
@@ -81,14 +92,18 @@ export default function Navbar({handleSearchRoute}) {
                   <a className="nav-link active" aria-current="page" href="#">Latest News</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">Archive</a>
+                  <a className="nav-link" aria-current="page" href="#">Blog</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Upcoming Flights</a>
+                  <a className="nav-link" aria-current="page" href="#">Reports</a>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link" onClick={handleThemeClick}><FontAwesomeIcon icon={faCircleHalfStroke}/> Toggle Light/Dark</button>
                 </li>
               </ul>
-              <form className="d-flex mt-3 mt-lg-0" role="search">
+              <form id='searchForm' className="d-flex mt-3 mt-lg-0" role="search">
                 <input
+                  id='searchFormInput'
                   className="form-control me-2"
                   type="search"
                   placeholder="Search"
