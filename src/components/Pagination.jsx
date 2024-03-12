@@ -1,8 +1,8 @@
-function Pagination({previous, handleOnClickPrev, page, next, handleOnClickNext, handleSortByOld, handleSortByNew}) {
+function Pagination({previous, handleOnClickPrev, page, next, handleOnClickNext, handleSortByOld, handleSortByNew, handleClearFilters, api, BASE_URL}) {
 
     return (
-        <div className='paginationContainer container-fluid' aria-label="Page navigation">
-            <ul className="pagination justify-content-center">
+        <div className='btn-toolbar paginationContainer container-fluid justify-content-center' aria-label="Page navigation">
+            <ul className="pagination p-2">
                 {previous !== null ?
                 <li className="page-item">
                 <button className="page-link" onClick={handleOnClickPrev} aria-label="Previous">
@@ -23,7 +23,7 @@ function Pagination({previous, handleOnClickPrev, page, next, handleOnClickNext,
                 </li>
                 : null }
             </ul>
-            <div className="dropdown text-end">
+            <div className="dropdown p-2">
                 <button
                 className="btn btn-secondary dropdown-toggle"
                 type="button"
@@ -45,6 +45,14 @@ function Pagination({previous, handleOnClickPrev, page, next, handleOnClickNext,
                 </li>
                 </ul>
             </div>
+            {api !== BASE_URL ? (
+                <ul className="pagination p-2">
+                <li>
+                    <button className="btn btn-danger" type="button" onClick={handleClearFilters}>Clear Filters</button>
+                </li>
+            </ul>
+                ) : null
+            }
         </div>
     )
 }

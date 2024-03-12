@@ -85,7 +85,7 @@ export default function Navbar({handleSearchRoute}) {
               </h5>
               <button
                 type="button"
-                className={`btn-close`}
+                className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
@@ -102,7 +102,7 @@ export default function Navbar({handleSearchRoute}) {
                   <a className={`nav-link ${active === 'Reports' ? `active`: ``}`} aria-current="page" href="#" onClick={handleReportsClick}>Reports</a>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link" onClick={handleThemeClick}><FontAwesomeIcon icon={faCircleHalfStroke}/> Toggle Light/Dark</button>
+                  <button id='themeBtn' className="nav-link" onClick={handleThemeClick}><FontAwesomeIcon icon={faCircleHalfStroke}/> Light/Dark</button>
                 </li>
               </ul>
               <form id='searchForm' className="d-flex mt-3 mt-lg-0" role="search">

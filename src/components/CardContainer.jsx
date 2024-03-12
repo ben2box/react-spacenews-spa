@@ -21,8 +21,17 @@ function CardContainer() {
   
   const sortOldestQuery = `ordering=published_at`
   const sortNewestQuery = `ordering=-published_at`
+  const searchQuery= `search=${searchTerm}`
 
   console.log(searchTerm)
+
+  useEffect(() => {
+    if (searchTerm !== ''){
+      setApi(BASE_URL+'?search='+searchTerm)
+      setPage(1)
+      setSearchTerm('')
+    }
+  }, [searchTerm])
 
   
   
@@ -44,12 +53,6 @@ function CardContainer() {
         setNews(data.results);
        
         
-        if (searchTerm !== ''){
-          setApi(BASE_URL+'?search='+searchTerm)
-          setPage(1)
-          setSearchTerm('')
-          
-        }
           
       } catch (e) {
         setError(e);
@@ -62,7 +65,7 @@ function CardContainer() {
     fetchNews()
     
       
-  },[api, error, searchTerm, setSearchTerm]);
+  },[api, error]);
 
     const handleOnClickNext = () => {
       setApi(next)
@@ -75,27 +78,39 @@ function CardContainer() {
     }
 
 
-    //TODO: Get sorting working in order, not affected by what page the search is
+    //TODO ---> FIX THIS SOMEHOW: Sorting various times keeps adding a new query to the endpoint, not subbing it. 
     const handleSortByOld = () => {
-      api.includes('search=') ? setApi(`${api}&${sortOldestQuery}`) : setApi(`${api}?${sortOldestQuery}`)
+      if (api.includes('search=')) {
+        setApi(`${BASE_URL}?${searchQuery}&${sortOldestQuery}`)
+        setPage(1)
+      } else {
+        setApi(`${BASE_URL}?${sortOldestQuery}`)
+        setPage(1) 
+      }
       
 
       
     }
     const handleSortByNew = () => {
-      api.includes('search=') ? setApi(`${api}&${sortNewestQuery}`) : setApi(`${api}?${sortNewestQuery}`)
+      if (api.includes('search=')) {
+        setApi(`${BASE_URL}?${searchQuery}&${sortNewestQuery}`)
+        setPage(1)
+      } else {
+        setApi(`${BASE_URL}?${sortNewestQuery}`)
+        setPage(1) 
+      }
       
     }
 
-    const resetFilters = () => {
+    const handleClearFilters = () => {
+      setApi(BASE_URL)
       setPage(1)
-      setNext(null)
-      setPrevious(null)
+      setSearchTerm('')
     }
 
 
     return (
-      <>
+      <div id="cardContainer" className="row gy-2 gx-0 justify-content-evenly">
         <Pagination previous={previous}
           handleOnClickPrev={handleOnClickPrev}
           page={page}
@@ -103,8 +118,10 @@ function CardContainer() {
           next={next}
           handleSortByNew={handleSortByNew}
           handleSortByOld={handleSortByOld}
+          handleClearFilters={handleClearFilters}
+          api={api}
+          BASE_URL={BASE_URL}
         />    
-        <div id="cardContainer" className="row gy-2 gx-0 justify-content-evenly">
             {loading ? (
               <div className='loadingContainer container-fluid text-center'>
               <h1> LOADING ... </h1>
@@ -123,7 +140,6 @@ function CardContainer() {
               <h3 className="text-center">No results found</h3>
               )}
         </div>
-      </>
     );
 }
 
