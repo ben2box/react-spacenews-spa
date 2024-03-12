@@ -36,6 +36,13 @@ hr {
   padding-right: 30px;
 }
 
+.loadingContainer {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 @media screen and (max-width: 650px) {

@@ -1,6 +1,6 @@
 function Card({id, title, url, image_url, summary}) {
-    return (
-      <div key={id} className="card col-auto">
+  return (
+      <div className="card col-auto">
         <img className="img-fluid card-img-top" src={image_url} alt="News" />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>

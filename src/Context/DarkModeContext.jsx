@@ -2,20 +2,18 @@ import {createContext, useState} from 'react';
 
 const DarkModeContext = createContext();
 
-function DarkModeProvider(props){
+function DarkModeProvider({children}){
 
-    const [darkMode, setDarkMode] = useState(false)
+    const [darkMode, setDarkMode] = useState(true)
+    darkMode ? document.body.setAttribute('data-bs-theme', 'dark') : document.body.setAttribute('data-bs-theme', 'light');
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
-        darkMode ? document.body.setAttribute('data-bs-theme', 'light') : document.body.setAttribute('data-bs-theme', 'dark');
     };
 
     return (
-        <div>
-            <DarkModeContext.Provider value={{darkMode, toggleDarkMode}}>
-                {props.children}
-            </DarkModeContext.Provider>
-        </div>
+        <DarkModeContext.Provider value={{darkMode, toggleDarkMode}}>
+            {children}
+        </DarkModeContext.Provider>
     )
 }
 

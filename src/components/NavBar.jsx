@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import {SearchContext} from '../App'
+import { SearchTermContext } from '../Context/SearchTermContext';
 import { DarkModeContext } from '../Context/DarkModeContext';
 import logo from '../resources/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,9 +8,9 @@ import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Navbar({handleSearchRoute}) {
-  const [active, setActive] = useState('News') //TODO: Fix navbar section active class onClick
+  const [active, setActive] = useState('News') 
   const [label, setLabel] = useState('')
-  const {updateSearchTerm} = useContext(SearchContext)
+  const {setSearchTerm} = useContext(SearchTermContext)
   const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
 
   const smLogo = (
@@ -31,8 +31,7 @@ export default function Navbar({handleSearchRoute}) {
  
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateSearchTerm(label)
-    console.log(label)
+    setSearchTerm(label)
     setLabel('')
   }
 
@@ -51,13 +50,6 @@ export default function Navbar({handleSearchRoute}) {
   const handleReportsClick = () => {
     setActive('Reports')
   }
-
-
-
-
-  // const handleSearchSubmit = () => {
-  //   handleSearchRoute(label)
-  // }
 
 
     return (
