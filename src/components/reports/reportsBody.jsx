@@ -1,6 +1,6 @@
-import ReportsContainer from "./ReportsContainer";
-import Divider from "./Divider";
-import Title from "./SectionTitle";
+import ReportsContainer from "./reportsContainer";
+import Divider from "../common/divider";
+import Title from "../common/sectionTitle";
 
 
 export default function ReportsBody() {

@@ -1,13 +1,10 @@
 import { useContext, useState } from 'react';
-import { SearchTermContext } from '../Context/SearchTermContext';
-import { DarkModeContext } from '../Context/DarkModeContext';
-import logo from '../resources/logo.svg'
+import { SearchTermContext } from '../../context/searchTermContext';
+import { DarkModeContext } from '../../context/darkModeContext';
+import logo from '../../resources/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-
-//TODO: BUTTONS ARE TAKING UP TOO MUCH "INVISIBLE" SPACE --> THEME BUTTON AS MAIN CULPRIT --> FIX IT
-//TODO: IN COLLAPSED MENU, Active page is not getting affected unless the name is clicked, not the button.
 
 export default function Navbar({active, handleNewsClick, handleBlogClick, handleReportsClick}) {
   const [label, setLabel] = useState('')

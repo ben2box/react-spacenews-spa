@@ -1,6 +1,6 @@
-import Navbar from "./NavBar";
-import Hero from "./Hero";
-import Divider from "./Divider";
+import Navbar from "./common/navBar";
+import Hero from "./common/hero";
+import Divider from "./common/divider";
 import { useLayoutEffect, useState } from "react";
 
 

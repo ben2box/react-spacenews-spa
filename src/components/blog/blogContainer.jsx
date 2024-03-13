@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext} from 'react';
-import { SearchTermContext } from '../Context/SearchTermContext';
-import Pagination from './Pagination';
-import BlogPost from './BlogPost';
+import { SearchTermContext } from '../../context/searchTermContext';
+import Pagination from '../common/pagination';
+import BlogPost from './blogPost';
 
 //TODO: LIGHT-MODE IS FUCKING UP BLOG ENTRIES TEXT
 
