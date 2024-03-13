@@ -44,7 +44,7 @@ export default function Navbar({active, handleNewsClick, handleBlogClick, handle
         aria-label="Offcanvas navbar large"
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/news" onClick={handleNewsClick}>
+          <Link className="navbar-brand" to="/" onClick={handleNewsClick}>
             {smLogo}
             FTL Newsfeed Network
           </Link>
@@ -79,7 +79,7 @@ export default function Navbar({active, handleNewsClick, handleBlogClick, handle
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <Link className={`nav-link ${active === 'News' ? `active fw-bold`: ``}`} aria-current="page"onClick={handleNewsClick} to='/news'>
+                  <Link className={`nav-link ${active === 'News' ? `active fw-bold`: ``}`} aria-current="page"onClick={handleNewsClick} to='/'>
                       Latest News
                   </Link>
                 </li>

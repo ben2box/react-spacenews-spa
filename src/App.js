@@ -26,7 +26,7 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route path="/news" element={<NewsBody />} />
+              <Route path="/" element={<NewsBody />} />
               <Route path="/blog" element={<BlogBody />} />
               <Route path="/reports" element={<ReportsBody />} />
               <Route path='*' element={<NotFound />}/>
