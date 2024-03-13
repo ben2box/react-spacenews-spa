@@ -1,8 +1,8 @@
 {
+  "homepage": "https://ben2box.github.io/react-spacenews-spa",
   "name": "react-spacenews-spa",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ben2box.github.io/react-spacenews-spa",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",

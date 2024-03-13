@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from "./components/header";
 import NewsBody from "./components/news/newsBody";
-import BlogBody from "./components/blog/blogBody";
+import BlogBody from "./components/blog/blogBody.jsx";
 import ReportsBody from "./components/reports/reportsBody";
 import NotFound from "./components/notFound";
 import Footer from "./components/footer";
@@ -26,7 +26,7 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route path="/" element={<NewsBody />} />
+              <Route path="/news" element={<NewsBody />} />
               <Route path="/blog" element={<BlogBody />} />
               <Route path="/reports" element={<ReportsBody />} />
               <Route path='*' element={<NotFound />}/>

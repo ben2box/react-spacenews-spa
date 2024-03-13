@@ -15,7 +15,7 @@ export default function Hero({active, handleNewsClick, handleBlogClick, handleRe
                 It's quick enough.
               </p>
               <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <Link className='text-link' to='/'>
+                <Link className='text-link' to='/news'>
                   <button
                   type="button"
                   className={`btn btn-lg px-4 me-sm-3 ${active === 'News' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}

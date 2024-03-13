@@ -3,8 +3,6 @@ import { SearchTermContext } from '../../context/searchTermContext';
 import Pagination from '../common/pagination';
 import BlogPost from './blogPost';
 
-//TODO: LIGHT-MODE IS FUCKING UP BLOG ENTRIES TEXT
-
 const resultsLimitQuery = '?limit=5'
 const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/blogs/' + resultsLimitQuery
 
