@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Hero() {
+export default function Hero({handleNewsClick, handleBlogClick, handleReportsClick}) {
     return (
       <div className="bg-dark text-secondary text-center" id="heroDiv">
         <div className="mask px-4 py-5">
@@ -19,6 +19,7 @@ export default function Hero() {
                   <button
                   type="button"
                   className="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"
+                  onClick={handleNewsClick}
                   >
                     What's New?
                   </button>
@@ -27,6 +28,7 @@ export default function Hero() {
                   <button
                   type="button"
                   className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  onClick={handleBlogClick}
                   >
                     Blog
                   </button>
@@ -35,6 +37,7 @@ export default function Hero() {
                   <button
                   type="button"
                   className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  onClick={handleReportsClick}
                   >
                     Reports
                   </button>

@@ -6,10 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
+//TODO: BUTTONS ARE TAKING UP TOO MUCH "INVISIBLE" SPACE --> THEME BUTTON AS MAIN CULPRIT --> FIX IT
 
-
-export default function Navbar({handleSearchRoute}) {
-  const [active, setActive] = useState('News') 
+export default function Navbar({active, handleNewsClick, handleBlogClick, handleReportsClick}) {
   const [label, setLabel] = useState('')
   const {setSearchTerm} = useContext(SearchTermContext)
   const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
@@ -40,19 +39,6 @@ export default function Navbar({handleSearchRoute}) {
   const handleThemeClick = () => {
     toggleDarkMode()
   }
-
-  const handleNewsClick = () => {
-    setActive('News')
-  }
-
-  const handleBlogClick = () => {
-    setActive('Blog')
-  }
-
-  const handleReportsClick = () => {
-    setActive('Reports')
-  }
-
 
     return (
       <nav
