@@ -7,6 +7,7 @@ import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 //TODO: BUTTONS ARE TAKING UP TOO MUCH "INVISIBLE" SPACE --> THEME BUTTON AS MAIN CULPRIT --> FIX IT
+//TODO: IN COLLAPSED MENU, Active page is not getting affected unless the name is clicked, not the button.
 
 export default function Navbar({active, handleNewsClick, handleBlogClick, handleReportsClick}) {
   const [label, setLabel] = useState('')

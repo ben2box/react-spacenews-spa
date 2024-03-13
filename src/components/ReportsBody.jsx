@@ -1,4 +1,4 @@
-import CardContainer from "./CardContainer";
+import NewsContainer from "./NewsContainer";
 import Divider from "./Divider";
 import Title from "./SectionTitle";
 
@@ -9,7 +9,7 @@ export default function ReportsBody() {
   return (
     <section>
       <Title text='Reports'/>
-      <CardContainer/>
+      <NewsContainer/>
       <Divider />
     
     </section>

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Hero({handleNewsClick, handleBlogClick, handleReportsClick}) {
     return (
-      <div className="bg-dark text-secondary text-center" id="heroDiv">
+      <div className="text-secondary text-center" id="heroDiv">
         <div className="mask px-4 py-5">
           <div className="py-5">
             <h1 className="display-5 fw-bold text-white">

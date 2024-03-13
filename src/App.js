@@ -19,21 +19,21 @@ import { SearchTermProvider } from "./Context/SearchTermContext";
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-        <DarkModeProvider>
-          <SearchTermProvider>
+    <div className="App">
+      <DarkModeProvider>
+        <SearchTermProvider>
+          <Router>
             <Header />
-      <Routes>
-            <Route path='/' element={<Body />} />
-            <Route path='/blog' element={<BlogBody />} />
-            <Route path='/reports' element={<ReportsBody />} />
-      </Routes>
+            <Routes>
+              <Route path="/" element={<Body />} />
+              <Route path="/blog" element={<BlogBody />} />
+              <Route path="/reports" element={<ReportsBody />} />
+            </Routes>
             <Footer />
-          </SearchTermProvider>
-        </DarkModeProvider>
-      </div>
-    </Router>
+          </Router>
+        </SearchTermProvider>
+      </DarkModeProvider>
+    </div>
   );
 }
 

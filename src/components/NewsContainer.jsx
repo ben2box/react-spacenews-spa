@@ -7,7 +7,7 @@ import Pagination from './Pagination';
 const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/articles/'
 
 
-function CardContainer() {
+function NewsContainer() {
   
   const [api, setApi] = useState(BASE_URL)
   const [error, setError] = useState(null)
@@ -143,4 +143,4 @@ function CardContainer() {
     );
 }
 
-export default CardContainer;
+export default NewsContainer;

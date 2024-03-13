@@ -19,7 +19,9 @@
 .mask {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-
+.darker-mask {
+  background-color: hsla(0, 0%, 0%, 0.65);
+}
 hr {
   margin-left: 10px;
   margin-right:10px;
@@ -38,6 +40,27 @@ hr {
 #cardContainer{
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.blog-post-img {
+  min-height: 50vh;
+  object-fit:contain
+}
+
+.blog-title {
+  color: #dee2e6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.blog-lead {
+  color: #dee2e6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 
 .loadingContainer {
@@ -82,7 +105,7 @@ hr {
 
 @media screen and (min-width: 1030px){
   #themeBtn {
-    padding-left: 100px
+    margin-left: 100px
   }
   
 };

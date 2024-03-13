@@ -1,4 +1,4 @@
-function Card({id, title, url, image_url, summary}) {
+function Card({title, url, image_url, summary}) {
   return (
       <div className="card col-auto">
         <img className="img-fluid card-img-top" src={image_url} alt="News" />
