@@ -82,24 +82,18 @@ export default function Navbar({active, handleNewsClick, handleBlogClick, handle
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <Link className='text-link' to='/'>
-                    <button className={`nav-link ${active === 'News' ? `active fw-bold`: ``}`} aria-current="page"onClick={handleNewsClick}>
+                  <Link className={`nav-link ${active === 'News' ? `active fw-bold`: ``}`} aria-current="page"onClick={handleNewsClick} to='/'>
                       Latest News
-                    </button>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className='text-link' to='/blog'>
-                    <button className={`nav-link ${active === 'Blog' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleBlogClick}>
+                  <Link className={`nav-link ${active === 'Blog' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleBlogClick} to='/blog'>
                       Blog
-                    </button>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className='text-link' to='/reports'>
-                    <button className={`nav-link ${active === 'Reports' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleReportsClick}>
+                  <Link className={`nav-link ${active === 'Reports' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleReportsClick} to='/reports'>
                       Reports
-                    </button>
                   </Link>
                 </li>
                 <li className="nav-item">

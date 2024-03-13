@@ -1,10 +1,11 @@
 import { useEffect, useState, useContext} from 'react';
 import { SearchTermContext } from '../Context/SearchTermContext';
-import Card from './NewsCard';
+import ReportPost from './ReportPost';
 import Pagination from './Pagination';
 
 
-const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/articles/'
+const resultsLimitQuery = '?limit=6'
+const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/reports/' + resultsLimitQuery
 
 
 function NewsContainer() {
@@ -13,11 +14,11 @@ function NewsContainer() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   
-  const [news, setNews] = useState([])
+  const [reports, setReports] = useState([])
   const [next, setNext] = useState('')
   const [previous, setPrevious] = useState('')
   const [page, setPage] = useState(1)
-  const [newsCount, setNewsCount] = useState(1)
+  const [reportsCount, setReportsCount] = useState(1)
   const {searchTerm, setSearchTerm} = useContext(SearchTermContext);
   
   const sortOldestQuery = `ordering=published_at`
@@ -28,7 +29,7 @@ function NewsContainer() {
 
   useEffect(() => {
     if (searchTerm !== ''){
-      setApi(BASE_URL+'?search='+searchTerm)
+      setApi(BASE_URL+'&search='+searchTerm)
       setPage(1)
       setSearchTerm('')
     }
@@ -40,18 +41,18 @@ function NewsContainer() {
     console.log('RUNNING USEEFFECT')  
   
     
-    async function fetchNews() {
+    async function fetchReports() {
       try {
         setLoading(true)
         console.log('FETCHING: ' + api)  
         const response = await fetch(`${api}`);
         const data = await response.json()
        
-        setNewsCount(data.count)
-        console.log('This fetch returned '+data.count+' news pieces.')
+        setReportsCount(data.count)
+        console.log('This fetch returned '+data.count+' report entries.')
         setNext(data.next)
         setPrevious(data.previous)
-        setNews(data.results);
+        setReports(data.results);
        
         
           
@@ -63,7 +64,7 @@ function NewsContainer() {
       }
       
     }
-    fetchNews()
+    fetchReports()
     
       
   },[api, error]);
@@ -81,10 +82,10 @@ function NewsContainer() {
 
     const handleSortByOld = () => {
       if (api.includes('search=')) {
-        setApi(`${BASE_URL}?${searchQuery}&${sortOldestQuery}`)
+        setApi(`${BASE_URL}&${searchQuery}&${sortOldestQuery}`)
         setPage(1)
       } else {
-        setApi(`${BASE_URL}?${sortOldestQuery}`)
+        setApi(`${BASE_URL}&${sortOldestQuery}`)
         setPage(1) 
       }
       
@@ -93,10 +94,10 @@ function NewsContainer() {
     }
     const handleSortByNew = () => {
       if (api.includes('search=')) {
-        setApi(`${BASE_URL}?${searchQuery}&${sortNewestQuery}`)
+        setApi(`${BASE_URL}&${searchQuery}&${sortNewestQuery}`)
         setPage(1)
       } else {
-        setApi(`${BASE_URL}?${sortNewestQuery}`)
+        setApi(`${BASE_URL}&${sortNewestQuery}`)
         setPage(1) 
       }
       
@@ -126,14 +127,14 @@ function NewsContainer() {
               <div className='loadingContainer container-fluid text-center'>
               <h1> LOADING ... </h1>
               </div>
-            ) : newsCount !== 0 ? (
-              news.map((card) => (
-                <Card
-                key={card.id}
-                title={card.title}
-                url={card.url}
-                image_url={card.image_url}
-                summary={card.summary}
+            ) : reportsCount !== 0 ? (
+              reports.map((report) => (
+                <ReportPost
+                key={report.id}
+                title={report.title}
+                url={report.url}
+                image_url={report.image_url}
+                summary={report.summary}
                 />
               ))
             ) : (

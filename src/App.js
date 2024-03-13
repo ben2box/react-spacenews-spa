@@ -7,9 +7,10 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from "./components/Header";
-import Body from "./components/Body";
+import NewsBody from "./components/NewsBody";
 import BlogBody from "./components/BlogBody";
 import ReportsBody from "./components/ReportsBody";
+import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import { DarkModeProvider } from './Context/DarkModeContext';
 import { SearchTermProvider } from "./Context/SearchTermContext";
@@ -25,9 +26,10 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route path="/" element={<Body />} />
+              <Route path="/" element={<NewsBody />} />
               <Route path="/blog" element={<BlogBody />} />
               <Route path="/reports" element={<ReportsBody />} />
+              <Route path='*' element={<NotFound />}/>
             </Routes>
             <Footer />
           </Router>

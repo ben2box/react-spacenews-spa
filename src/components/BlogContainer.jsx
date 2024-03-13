@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext} from 'react';
 import { SearchTermContext } from '../Context/SearchTermContext';
 import Pagination from './Pagination';
-import Card from './Card';
 import BlogPost from './BlogPost';
 
 //TODO: LIGHT-MODE IS FUCKING UP BLOG ENTRIES TEXT
@@ -41,7 +40,7 @@ export default function BlogContainer(){
       console.log('RUNNING USEEFFECT')  
     
       
-      async function fetchNews() {
+      async function fetchBlogs() {
         try {
           setLoading(true)
           console.log('FETCHING: ' + api)  
@@ -64,7 +63,7 @@ export default function BlogContainer(){
         }
         
       }
-      fetchNews()
+      fetchBlogs()
       
         
     },[api, error]);

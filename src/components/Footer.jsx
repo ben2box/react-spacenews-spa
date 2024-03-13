@@ -4,7 +4,7 @@ export default function Footer() {
     return (
           <footer
             id='Footer'
-            className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+            className="d-flex flex-wrap py-3 my-4">
             <p className="col-md-4 mb-0 text-body-secondary">
               © 2024 Faster Than Light Inc
             </p>

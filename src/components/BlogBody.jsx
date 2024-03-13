@@ -8,7 +8,7 @@ export default function BlogBody() {
 
   return (
     <section>
-      <Title text='Blog'/>
+      <Title text='Blog' intro='Get your daily dose of space related Blog entries'/>
       <BlogContainer/>
       <Divider />
     

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Hero({handleNewsClick, handleBlogClick, handleReportsClick}) {
+export default function Hero({active, handleNewsClick, handleBlogClick, handleReportsClick}) {
     return (
       <div className="text-secondary text-center" id="heroDiv">
         <div className="mask px-4 py-5">
@@ -18,7 +18,7 @@ export default function Hero({handleNewsClick, handleBlogClick, handleReportsCli
                 <Link className='text-link' to='/'>
                   <button
                   type="button"
-                  className="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"
+                  className={`btn btn-lg px-4 me-sm-3 ${active === 'News' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}
                   onClick={handleNewsClick}
                   >
                     What's New?
@@ -27,7 +27,7 @@ export default function Hero({handleNewsClick, handleBlogClick, handleReportsCli
                 <Link className='text-link' to='/blog'>
                   <button
                   type="button"
-                  className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  className={`btn btn-lg px-4 me-sm-3 ${active === 'Blog' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}
                   onClick={handleBlogClick}
                   >
                     Blog
@@ -36,7 +36,7 @@ export default function Hero({handleNewsClick, handleBlogClick, handleReportsCli
                 <Link className='text-link' to='/reports'>
                   <button
                   type="button"
-                  className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  className={`btn btn-lg px-4 me-sm-3 ${active === 'Reports' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}
                   onClick={handleReportsClick}
                   >
                     Reports
