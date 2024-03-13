@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 
 const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/articles/'
 
+
 function CardContainer() {
   
   const [api, setApi] = useState(BASE_URL)
@@ -31,7 +32,7 @@ function CardContainer() {
       setPage(1)
       setSearchTerm('')
     }
-  }, [searchTerm])
+  }, [searchTerm, setSearchTerm])
 
   
   
@@ -78,7 +79,6 @@ function CardContainer() {
     }
 
 
-    //TODO ---> FIX THIS SOMEHOW: Sorting various times keeps adding a new query to the endpoint, not subbing it. 
     const handleSortByOld = () => {
       if (api.includes('search=')) {
         setApi(`${BASE_URL}?${searchQuery}&${sortOldestQuery}`)

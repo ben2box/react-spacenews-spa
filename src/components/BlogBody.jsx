@@ -3,12 +3,12 @@ import Divider from "./Divider";
 import Title from "./SectionTitle";
 
 
-export default function Body() {
+export default function BlogBody() {
 
 
   return (
     <section>
-      <Title text='Latest News'/>
+      <Title text='Blog'/>
       <CardContainer/>
       <Divider />
     

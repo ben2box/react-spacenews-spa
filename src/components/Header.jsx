@@ -1,7 +1,6 @@
 import Navbar from "./NavBar";
 import Hero from "./Hero";
 import Divider from "./Divider";
-import Title from "./SectionTitle";
 
 
 export default function Header() {
@@ -12,7 +11,6 @@ export default function Header() {
       <Navbar />
       <Hero />
       <Divider />
-      <Title text='Latest News'/>
     </header>
   );
 }

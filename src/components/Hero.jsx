@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Hero() {
     return (
       <div className="bg-dark text-secondary text-center" id="heroDiv">
@@ -13,18 +15,30 @@ export default function Hero() {
                 It's quick enough.
               </p>
               <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button
+                <Link className='text-link' to='/'>
+                  <button
                   type="button"
                   className="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"
-                >
-                  What's New?
-                </button>
-                <button
+                  >
+                    What's New?
+                  </button>
+                </Link>
+                <Link className='text-link' to='/blog'>
+                  <button
                   type="button"
-                  className="btn btn-outline-light btn-lg px-4"
-                >
-                  Upcoming Flights
-                </button>
+                  className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  >
+                    Blog
+                  </button>
+                </Link>
+                <Link className='text-link' to='/reports'>
+                  <button
+                  type="button"
+                  className="btn btn-outline-light btn-lg px-4 me-sm-3"
+                  >
+                    Reports
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

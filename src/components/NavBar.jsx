@@ -4,6 +4,7 @@ import { DarkModeContext } from '../Context/DarkModeContext';
 import logo from '../resources/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 
 
@@ -33,6 +34,7 @@ export default function Navbar({handleSearchRoute}) {
     event.preventDefault();
     setSearchTerm(label)
     setLabel('')
+    //label.replace(/ /g, '%20') --> in case encoding spaces to %20 was needed
   }
 
   const handleThemeClick = () => {
@@ -58,10 +60,10 @@ export default function Navbar({handleSearchRoute}) {
         aria-label="Offcanvas navbar large"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="http://localhost:3000/">
+          <Link className="navbar-brand" to="/" onClick={handleNewsClick}>
             {smLogo}
             FTL Newsfeed Network
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -93,13 +95,25 @@ export default function Navbar({handleSearchRoute}) {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className={`nav-link ${active === 'News' ? `active`: ``}`} aria-current="page" href="#" onClick={handleNewsClick}>Latest News</a>
+                  <Link className='text-link' to='/'>
+                    <button className={`nav-link ${active === 'News' ? `active fw-bold`: ``}`} aria-current="page"onClick={handleNewsClick}>
+                      Latest News
+                    </button>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className={`nav-link ${active === 'Blog' ? `active`: ``}`} aria-current="page" href="#" onClick={handleBlogClick}>Blog</a>
+                  <Link className='text-link' to='/blog'>
+                    <button className={`nav-link ${active === 'Blog' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleBlogClick}>
+                      Blog
+                    </button>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className={`nav-link ${active === 'Reports' ? `active`: ``}`} aria-current="page" href="#" onClick={handleReportsClick}>Reports</a>
+                  <Link className='text-link' to='/reports'>
+                    <button className={`nav-link ${active === 'Reports' ? `active fw-bold`: ``}`} aria-current="page" onClick={handleReportsClick}>
+                      Reports
+                    </button>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <button id='themeBtn' className="nav-link" onClick={handleThemeClick}><FontAwesomeIcon icon={faCircleHalfStroke}/> Light/Dark</button>
@@ -110,15 +124,15 @@ export default function Navbar({handleSearchRoute}) {
                   id='searchFormInput'
                   className="form-control me-2"
                   type="search"
-                  placeholder="Search"
+                  placeholder="Search the Cosmos"
                   aria-label="Search"
                   value={label}
                   onChange={handleLabelUpdate}
                 />
-                <button className="btn btn-outline-success" type="submit"
+                <button className="btn btn-outline-info" type="submit"
                 disabled={label.length === 0}
                 onClick={handleSubmit}>
-                  Search
+                  <strong>Search</strong>
                 </button>
               </form>
             </div>
