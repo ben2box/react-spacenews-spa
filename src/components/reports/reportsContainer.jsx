@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext} from 'react';
-import { SearchTermContext } from '../../Context/SearchTermContext';
-import ReportPost from './ReportPost';
-import Pagination from '../common/Pagination';
+import { SearchTermContext } from '../../context/searchTermContext';
+import ReportPost from './reportPost';
+import Pagination from '../common/pagination';
 
 
 const resultsLimitQuery = '?limit=6'

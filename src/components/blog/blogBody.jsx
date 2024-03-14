@@ -1,6 +1,6 @@
-import BlogContainer from "./BlogContainer";
-import Divider from "../common/Divider";
-import Title from "../common/SectionTitle";
+import BlogContainer from "./blogContainer";
+import Divider from "../common/divider";
+import Title from "../common/sectionTitle";
 
 
 export default function BlogBody() {

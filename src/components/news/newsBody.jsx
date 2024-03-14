@@ -1,6 +1,6 @@
-import NewsContainer from "./NewsContainer";
-import Divider from "../common/Divider";
-import Title from "../common/SectionTitle";
+import NewsContainer from "./newsContainer";
+import Divider from "../common/divider";
+import Title from "../common/sectionTitle";
 
 
 export default function NewsBody() {

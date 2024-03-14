@@ -6,14 +6,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Header from "./components/Header.jsx";
-import NewsBody from "./components/news/NewsBody.jsx";
-import BlogBody from "./components/blog/BlogBody.jsx";
-import ReportsBody from "./components/reports/ReportsBody.jsx";
-import NotFound from "./components/NotFound.jsx";
-import Footer from "./components/Footer.jsx";
-import { DarkModeProvider } from './Context/DarkModeContext.jsx';
-import { SearchTermProvider } from "./Context/SearchTermContext.jsx";
+import Header from "./components/header.jsx";
+import NewsBody from "./components/news/newsBody.jsx";
+import BlogBody from "./components/blog/blogBody.jsx";
+import ReportsBody from "./components/reports/reportsBody.jsx";
+import NotFound from "./components/notFound.jsx";
+import Footer from "./components/footer.jsx";
+import { DarkModeProvider } from './context/darkModeContext.jsx';
+import { SearchTermProvider } from "./context/searchTermContext.jsx";
 
 
 

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import { SearchTermContext } from '../../Context/SearchTermContext';
-import { DarkModeContext } from '../../Context/DarkModeContext';
+import { SearchTermContext } from '../../context/searchTermContext';
+import { DarkModeContext } from '../../context/darkModeContext';
 import logo from '../../resources/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
