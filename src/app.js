@@ -1,8 +1,5 @@
-// Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-// import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import "./app.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -23,7 +20,7 @@ function App() {
     <div className="App">
       <DarkModeProvider>
         <SearchTermProvider>
-          <Router basepath="/react-spacenews-spa">
+          <Router basename="/react-spacenews-spa">
             <Header />
             <Routes>
               <Route path="/" element={<NewsBody />} />

@@ -25,7 +25,6 @@ function NewsContainer() {
   const sortNewestQuery = `ordering=-published_at`
   const searchQuery= `search=${searchTerm}`
 
-  console.log(searchTerm)
 
   useEffect(() => {
     if (searchTerm !== ''){
@@ -38,18 +37,15 @@ function NewsContainer() {
   
   
   useEffect(() => {
-    console.log('RUNNING USEEFFECT')  
   
     
     async function fetchReports() {
       try {
         setLoading(true)
-        console.log('FETCHING: ' + api)  
         const response = await fetch(`${api}`);
         const data = await response.json()
        
         setReportsCount(data.count)
-        console.log('This fetch returned '+data.count+' report entries.')
         setNext(data.next)
         setPrevious(data.previous)
         setReports(data.results);
