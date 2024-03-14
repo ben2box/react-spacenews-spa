@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-spacenews-spa/static/css/main.4337355a.css",
-    "main.js": "/react-spacenews-spa/static/js/main.d24381ba.js",
+    "main.js": "/react-spacenews-spa/static/js/main.13fcb862.js",
     "static/media/background.jpg": "/react-spacenews-spa/static/media/background.c98d240d8a7febbee204.jpg",
     "static/media/logo.svg": "/react-spacenews-spa/static/media/logo.d640ed5fe9a99c43024bec03a20478b5.svg",
     "index.html": "/react-spacenews-spa/index.html",
     "main.4337355a.css.map": "/react-spacenews-spa/static/css/main.4337355a.css.map",
-    "main.d24381ba.js.map": "/react-spacenews-spa/static/js/main.d24381ba.js.map"
+    "main.13fcb862.js.map": "/react-spacenews-spa/static/js/main.13fcb862.js.map"
   },
   "entrypoints": [
     "static/css/main.4337355a.css",
-    "static/js/main.d24381ba.js"
+    "static/js/main.13fcb862.js"
   ]
 }
