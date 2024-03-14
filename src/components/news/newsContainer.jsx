@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext} from 'react';
-import { SearchTermContext } from '../../context/searchTermContext';
+import { SearchTermContext } from '../../contexto/searchTermContext';
 import Card from './newsCard';
 import Pagination from '../common/pagination';
 
