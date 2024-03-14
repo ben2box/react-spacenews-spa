@@ -12,8 +12,8 @@ import BlogBody from "./components/blog/blogBody.jsx";
 import ReportsBody from "./components/reports/reportsBody.jsx";
 import NotFound from "./components/notFound.jsx";
 import Footer from "./components/footer.jsx";
-import { DarkModeProvider } from './contexto/darkModeContext.jsx';
-import { SearchTermProvider } from "./contexto/searchTermContext.jsx";
+import { DarkModeProvider } from './context/darkModeContext.jsx';
+import { SearchTermProvider } from "./context/searchTermContext.jsx";
 
 
 
