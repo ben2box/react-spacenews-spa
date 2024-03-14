@@ -22,7 +22,6 @@ export default function BlogContainer(){
     const sortNewestQuery = `ordering=-published_at`
     const searchQuery= `search=${searchTerm}`
   
-    console.log(searchTerm)
   
     useEffect(() => {
       if (searchTerm !== ''){
@@ -35,18 +34,15 @@ export default function BlogContainer(){
     
     
     useEffect(() => {
-      console.log('RUNNING USEEFFECT')  
     
       
       async function fetchBlogs() {
         try {
           setLoading(true)
-          console.log('FETCHING: ' + api)  
           const response = await fetch(`${api}`);
           const data = await response.json()
          
           setBlogsCount(data.count)
-          console.log('This fetch returned '+data.count+' blog pieces.')
           setNext(data.next)
           setPrevious(data.previous)
           setBlogs(data.results);

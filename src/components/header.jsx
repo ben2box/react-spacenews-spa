@@ -8,7 +8,6 @@ export default function Header() {
   const [active, setActive] = useState()
 
   useLayoutEffect(() => {
-    console.log('useLayoutEffect called')
     if (window.location.href.includes('reports')) {
       setActive('Reports')
     } else if (window.location.href.includes('blog')) {

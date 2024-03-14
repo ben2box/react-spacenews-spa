@@ -1,8 +1,5 @@
-// Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-// import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import "./app.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
