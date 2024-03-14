@@ -27,6 +27,15 @@ hr {
   margin-top: 30px;
 }
 
+.card:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+
+.card:hover .card-img-top{
+  mask-image: linear-gradient(rgb(0,0,0), transparent);
+}
+
 .card-img-top {
   height: 35vh;
   object-fit: cover;
@@ -58,6 +67,16 @@ hr {
   overflow: hidden;
 }
 
+.blog-post-container:hover {
+  background-color: hsla(0, 0%, 0%, 0.80);
+ 
+}
+
+.blog-post-wrapper:hover{
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+  
 .loadingContainer {
   height: 600px;
   display: flex;
