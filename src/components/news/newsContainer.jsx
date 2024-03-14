@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext} from 'react';
-import { SearchTermContext } from '../../context/searchTermContext';
-import Card from './newsCard';
-import Pagination from '../common/pagination';
+import { SearchTermContext } from '../../Context/SearchTermContext';
+import Card from './NewsCard';
+import Pagination from '../common/Pagination';
 
 
 const BASE_URL = 'https://api.spaceflightnewsapi.net/v4/articles/'

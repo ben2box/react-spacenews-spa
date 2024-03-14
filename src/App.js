@@ -3,17 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 // import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
-import "./app.css";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Header from "./components/header";
-import NewsBody from "./components/news/newsBody";
-import BlogBody from "./components/blog/blogBody.jsx";
-import ReportsBody from "./components/reports/reportsBody";
-import NotFound from "./components/notFound";
-import Footer from "./components/footer";
-import { DarkModeProvider } from './context/darkModeContext';
-import { SearchTermProvider } from "./context/searchTermContext";
+import Header from "./components/Header.jsx";
+import NewsBody from "./components/news/NewsBody.jsx";
+import BlogBody from "./components/blog/BlogBody.jsx";
+import ReportsBody from "./components/reports/ReportsBody.jsx";
+import NotFound from "./components/NotFound.jsx";
+import Footer from "./components/Footer.jsx";
+import { DarkModeProvider } from './Context/DarkModeContext.jsx';
+import { SearchTermProvider } from "./Context/SearchTermContext.jsx";
 
 
 
