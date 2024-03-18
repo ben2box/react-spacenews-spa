@@ -15,7 +15,7 @@ export default function Hero({active, handleNewsClick, handleBlogClick, handleRe
                 It's quick enough.
               </p>
               <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <Link className='text-link' to='/'>
+                <Link className='text-link' to="/">
                   <button
                   type="button"
                   className={`btn btn-lg px-4 me-sm-3 ${active === 'News' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}
@@ -24,7 +24,7 @@ export default function Hero({active, handleNewsClick, handleBlogClick, handleRe
                     What's New?
                   </button>
                 </Link>
-                <Link className='text-link' to='/blog'>
+                <Link className='text-link' to="/blog">
                   <button
                   type="button"
                   className={`btn btn-lg px-4 me-sm-3 ${active === 'Blog' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}
@@ -33,7 +33,7 @@ export default function Hero({active, handleNewsClick, handleBlogClick, handleRe
                     Blog
                   </button>
                 </Link>
-                <Link className='text-link' to='/reports'>
+                <Link className='text-link' to="/reports">
                   <button
                   type="button"
                   className={`btn btn-lg px-4 me-sm-3 ${active === 'Reports' ? 'fw-bold btn-outline-info' : 'btn-outline-light'} `}

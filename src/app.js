@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <DarkModeProvider>
         <SearchTermProvider>
-          <Router basename="/react-spacenews-spa">
+          <Router basename="/react-spacenews-spa/">
             <Header />
             <Routes>
               <Route path="/" element={<NewsBody />} />
