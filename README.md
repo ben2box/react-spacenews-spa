@@ -2,6 +2,8 @@
 
 As part of a 6 week React Workshop, this was the final project. A website that feeds off a space news Rest API, making use of good project and component organization and the core hooks/APIs of React.
 
+Deployed here: https://ben2box.github.io/react-spacenews-spa/
+
 ## Set it up
 
 Clone the repo, install dependencies (eg: npm install) and run it (eg: npm start)
